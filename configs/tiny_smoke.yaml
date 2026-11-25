@@ -1,0 +1,32 @@
+model:
+  vocab_size: 512
+  d_model: 128
+  n_layers: 4
+  n_heads: 4
+  n_kv_heads: 2
+  d_ff: 384
+  max_seq_len: 128
+  rope_theta: 10000.0
+  norm_eps: 1.0e-6
+  dropout: 0.0
+  tie_embeddings: true
+
+train:
+  data_dir: "data/demo"
+  tokenizer_path: "data/demo/tokenizer.json"
+  out_dir: "checkpoints/tiny_smoke"
+  batch_size: 16
+  grad_accum_steps: 1
+  max_steps: 80
+  warmup_steps: 10
+  eval_interval: 20
+  eval_batches: 5
+  log_interval: 10
+  lr: 1.5e-3
+  min_lr: 1.5e-4
+  weight_decay: 0.05
+  grad_clip: 1.0
+  bf16: true
+  num_workers: 0
+  seed: 42
+  autosave_minutes: 5.0
